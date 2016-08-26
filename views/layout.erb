@@ -1,0 +1,9 @@
+
+<html><head><title>Mailbox Self Service</title></head>
+<body>
+<% if flash[:notice] %>
+<p><B><i><font color=\"green\"><%= flash[:notice] %></font></i></B></p>
+<% end %>
+<%= yield %>
+ <hr noshade><em>Powered by <a href="http://www.sinatrarb.com/">Sinatra</a></em>
+</body></html>

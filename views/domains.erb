@@ -1,0 +1,13 @@
+ <h2>Mailbox Self Service: /</h2>
+ <ul>
+ <% @domains.each do |domain| %>
+  <li><a href="/mss/<%= domain.fqdn %>/"><%= domain.fqdn %></a></li>
+  <% end %>
+ </ul>
+
+ <form method="post" action="/mss/">
+  <input type="hidden" name="_method" value="put" />
+  <p><input type="text" name="fqdn" placeholder="e.g. example.com" tabindex="1"></p>
+  <p><input type="text" name="description" tabindex="2" placeholder="description"></p>
+  <input type="submit" tabindex="4">
+</form>

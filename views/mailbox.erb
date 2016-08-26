@@ -1,0 +1,13 @@
+ <h2>Mailbox Self Service: /<%= @domain.fqdn %>/<%= @mailbox.local_part %>/</h2>
+ <a href="../">back</a></br>
+ <%= @mailbox.local_part %>@<%= @domain.fqdn %>
+
+ <form method="get" action="/mss/<%= @domain.fqdn %>/<%= @mailbox.local_part %>/verify-password/">
+  <p><input type="password" name="password" placeholder="password"></p>
+  <input type="submit" value="Verify password">
+</form>
+ <form method="post" action="/mss/<%= @domain.fqdn %>/<%= @mailbox.local_part %>/">
+  <input name="_method" type="hidden" value="delete" />
+  <input type="submit" value="Delete">
+</form>
+
