@@ -6,7 +6,7 @@ require 'rack-flash'
 
 ActiveRecord::Base.establish_connection(
   :adapter  => "mysql",
-  :host     => "devops.ok",
+  :host     => "tms.devops.ok",
   :username => "mail",
   :password => "sportsbar",
   :database => "mail"
