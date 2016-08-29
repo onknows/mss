@@ -39,6 +39,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  i18n
   mysql
   rack-flash3
   sinatra
