@@ -46,10 +46,8 @@ end
 
   put '/mss/:domain/' do |n|
     domain = Domain.find_by fqdn: n
-    sql = "select md5('#{params['password']}') from dual"
-    pw = ActiveRecord::Base.connection.execute(sql).first.first
     mailbox = Mailbox.create(domain_id: domain.id, local_part: params['local_part'],
-      password: pw,
+      password: params['password'],
       description: params['description'] + ". " + (ENV['REMOTE_USER'] || ''),
       active: 1)
     flash[:notice] = "Mailbox #{mailbox.local_part}@#{domain.fqdn} created!"
@@ -73,9 +71,7 @@ end
   get '/mss/:domain/:local_part/verify-password/' do 
     domain = Domain.find_by fqdn: params['domain']
     mailbox = Mailbox.find_by domain_id: domain.id, local_part: params['local_part']
-    sql = "select md5('#{params['password']}') from dual"
-    pw = ActiveRecord::Base.connection.execute(sql).first.first
-    if pw == mailbox.password
+    if params['domain'] == mailbox.password
       flash[:notice] = "Verified! Password is correct."      
     else
       flash[:notice] = "<font color=\"red\">Password is not correct!</font>"           
