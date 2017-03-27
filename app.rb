@@ -5,11 +5,8 @@ require 'digest/md5'
 require 'rack-flash'
 
 ActiveRecord::Base.establish_connection(
-  :adapter  => "mysql",
-  :host     => "localhost",
-  :username => "mail",
-  :password => "sportsbar",
-  :database => "mail"
+  :adapter  => "sqlite",
+  :database => "db/tms.sqlite"
 )
 
 class Mailbox < ActiveRecord::Base
