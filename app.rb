@@ -71,7 +71,7 @@ end
 get '/mss/:domain/:local_part/verify-password/' do
   domain = Domain.find_by fqdn: params['domain']
   mailbox = Mailbox.find_by domain_id: domain.id, local_part: params['local_part']
-  if params['domain'] == mailbox.password
+  if params['password'] == mailbox.password
     flash[:notice] = 'Verified! Password is correct.'
   else
     flash[:notice] = '<font color="red">Password is not correct!</font>'
