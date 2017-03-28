@@ -8,6 +8,6 @@
 </form>
  <form method="post" action="/mss/<%= @domain.fqdn %>/<%= @mailbox.local_part %>/">
   <input name="_method" type="hidden" value="delete" />
-  <input type="submit" value="Delete">
+  <input type="submit" name="delete" value="Delete">
 </form>
 
